@@ -3,7 +3,7 @@ const brand_item = document.getElementById("marka").value
 const type_item = document.getElementById("product").value
 const makeup = []
 
-// перебераем полученный массив и из него создаем новый
+// перебираем полученный массив и из него создаем новый
 function getValue(array) {
     for (let i = 0; i < array.length; i++) {
         makeup[i] = {
@@ -16,7 +16,7 @@ function getValue(array) {
     }
     console.log(makeup) //выводим новый массив в консоль 
 }
-// Обновляем переменыые данными из форм. Получаем данные из JSON
+// Обновляем переменные данными из форм. Получаем данные из JSON
 const krData = function (brand_item, type_item) {
     var brand_item = document.getElementById("marka").value
     var type_item = document.getElementById("product").value

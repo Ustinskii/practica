@@ -17,18 +17,16 @@ function getValue(array) {
     console.log(makeup) //выводим новый массив в консоль 
 }
 // Обновляем переменные данными из форм. Получаем данные из JSON
-const krData = function (brand_item, type_item) {
-    var brand_item = document.getElementById("marka").value
-    var type_item = document.getElementById("product").value
-    fetch(
-        ` http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand_item}&product_type=${type_item}&price_greater_than=10 `,
-    )
-        .then((response) => {
-            if (!response.ok)
-                throw new Error(`Ссылка не найдена. Ошибка ${response.status}`)
-            return response.json()
-        })
-        .then(function (data) {
-            getValue(data)
-        })
+
+    const krData = function (brand_item, type_item) { 
+     try {
+        var brand_item = document.getElementById("marka").value
+        var type_item = document.getElementById("product").value
+    
+        fetch(` http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand_item}&product_type=${type_item}&price_greater_than=10 `,)   
+            .then(response => response.json())
+            .then(data => getValue(data))
+    } 
+    catch(err){console.log("File not found")}
 }
+

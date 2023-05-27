@@ -18,15 +18,15 @@ function getValue(array) {
 }
 // Обновляем переменные данными из форм. Получаем данные из JSON
 
-    const krData = function (brand_item, type_item) { 
-     try {
-        var brand_item = document.getElementById("marka").value
-        var type_item = document.getElementById("product").value
-    
-        fetch(` http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand_item}&product_type=${type_item}&price_greater_than=10 `,)   
+const krData = function (brand_item, type_item) {
+    try {
+        let brand_item = document.getElementById("marka").value
+        let type_item = document.getElementById("product").value
+
+        fetch(` http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand_item}&product_type=${type_item}&price_greater_than=10 `,)
             .then(response => response.json())
             .then(data => getValue(data))
-    } 
-    catch(err){console.log("File not found")}
+    }
+    catch (err) { console.log("File not found") }
 }
 
